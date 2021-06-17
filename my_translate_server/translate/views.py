@@ -4,10 +4,11 @@ from django.shortcuts import render
 from google_trans_new import google_translator
 from .models import Word
 from django.db import IntegrityError
+from django.shortcuts import render
 
 
 def home(request):
-    return HttpResponse("hello")
+    return render(request, "index.html")
 
 
 @csrf_exempt

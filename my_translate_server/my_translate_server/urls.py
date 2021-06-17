@@ -13,11 +13,22 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.shortcuts import render
+from django.urls import path, re_path
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 from translate import url
+
+
+def render_react(request):
+    return render(request, "index.html")
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include(url)),
-]
+    re_path(r"^$", render_react),
+    re_path(r"^(?:.*)/?$", render_react),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
