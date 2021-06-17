@@ -32,12 +32,12 @@ else:
     os.system("python manage.py runserver 5005 &")
 
 
-os.chdir("../my_translate_front")
+# os.chdir("../my_translate_front")
 
-print("\n[running front ...]\n")
-if sys.platform == "win32":
-    os.system("start /b python -m http.server")
-else:
-    os.system("python -m http.server &")
+# print("\n[running front ...]\n")
+# if sys.platform == "win32":
+#     os.system("start /b python -m http.server")
+# else:
+#     os.system("python -m http.server &")
 
 print("\n---[successfully done ...]---\n")
